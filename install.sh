@@ -4,7 +4,7 @@
 
 echo "[WebNF-e] API install.."
 echo "[API] Composer install.."
-#docker run --rm -v $(pwd)/application/api:/application/api -w /application/api composer install
+docker run --rm -v $(pwd)/application/api:/application/api -w /application/api composer install
 
 docker run --rm \
     -v $(pwd)/application/api:/application/api \
@@ -24,7 +24,7 @@ docker run --rm \
 
 echo "[WebNF-e] Client install.."
 echo "[Client] NPM install.."
-#docker run --rm \
-#    -v $(pwd)/application/client:/application/client \
-#    -w /application/client \
-#    node npm install
+docker run --rm \
+    -v $(pwd)/application/client:/application/client \
+    -w /application/client \
+    node npm install
