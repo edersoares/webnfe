@@ -18,6 +18,9 @@ services:
     image: php:fpm
     volumes:
       - ./application:/application
+    env_file:
+      - .env.api
+
   node:
     container_name: node
     image: node
