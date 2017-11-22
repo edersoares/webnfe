@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+
+  nginx:
+    container_name: nginx
+    image: nginx
+    ports:
+      - 8000:80
+    volumes:
+      - ./application:/application
+      - ./services/nginx/conf.d:/etc/nginx/conf.d
+    links:
+      - php
+
+  php:
+    container_name: php
+    image: php:fpm
+    volumes:
+      - ./application:/application
+  node:
+    container_name: node
+    image: node
+    ports:
+      - 80:8080
+    volumes:
+      - ./application:/application
+    working_dir: /application/client
+    command: ["npm", "run", "dev"]

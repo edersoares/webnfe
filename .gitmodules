@@ -1,0 +1,6 @@
+[submodule "application/api"]
+	path = application/api
+	url = https://github.com/edersoares/webnfe-api.git
+[submodule "application/client"]
+	path = application/client
+	url = https://github.com/edersoares/webnfe-client.git
