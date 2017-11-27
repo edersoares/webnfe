@@ -18,3 +18,5 @@ RUN apt-get install -y libxml2-dev
 RUN docker-php-ext-install soap
 
 RUN docker-php-ext-install zip
+
+RUN mv composer.phar /usr/local/bin/composer
