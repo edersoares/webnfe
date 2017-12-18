@@ -15,11 +15,21 @@ services:
 
   php:
     container_name: php
-    image: php:fpm
+    build: ./services/php
     volumes:
       - ./application:/application
     env_file:
       - .env.api
+
+  worker:
+    container_name: worker
+    build: ./services/worker
+    volumes:
+      - ./application:/application
+    env_file:
+      - .env.api
+    working_dir: /application/api
+    command: "php artisan queue:work --tries=3"
 
   node:
     container_name: node
